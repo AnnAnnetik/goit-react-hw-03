@@ -2,10 +2,10 @@ import style from './SearchBox.module.css';
 
 const SearchBox = () => {
   return (
-    <label className={style.searchBox}>
-      Finde contacts by name
-      <input type="text" className={style.input}></input>
-    </label>
+    <div className={style.searchBox}>
+      <label>Finde contacts by name </label>
+      <input type="text" className={style.input} />
+    </div>
   );
 };
 export default SearchBox;

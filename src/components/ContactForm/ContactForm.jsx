@@ -1,16 +1,22 @@
-import Contact from '../Contact/Contact';
-// import { FaUser } from 'react-icons/fa';
-// import { FaPhone } from 'react-icons/fa6';
-// const icon = [<FaUser />, <FaPhone />];
-const ContactForm = ({ contacts }) => {
+// import { Form } from 'formik';
+import style from './ContactForm.module.css';
+
+const ContactForm = () => {
   return (
-    <ul>
-      {Array.isArray(contacts) &&
-        contacts.map(contact => {
-          return <Contact key={contact.id} contact={contact} />;
-        })}
-    </ul>
+    <form className={style.formContainer}>
+      <div className={style.inputContainer}>
+        <label htmlFor=""> Name</label>
+
+        <input type="text" />
+      </div>
+      <div className={style.inputContainer}>
+        <label htmlFor=""> Number</label>
+
+        <input type="text" />
+      </div>
+
+      <button>Add contact</button>
+    </form>
   );
 };
-
 export default ContactForm;
