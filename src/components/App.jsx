@@ -1,16 +1,17 @@
+import { useEffect, useState } from 'react';
 import contactsData from '../contacts.json';
 import ContactList from './ContactList/ContactList';
 import SearchBox from './SearchBox/SearchBox';
 import ContactForm from './ContactForm/ContactForm';
-import { useEffect, useState } from 'react';
+
 import { nanoid } from 'nanoid';
 
 const App = () => {
   const [contacts, setContacts] = useState(() => {
     const stringifiedContacts = localStorage.getItem('contactsInf');
     if (!stringifiedContacts) return contactsData;
-    const parsedContacts = JSON.parse(stringifiedContacts);
-    return parsedContacts;
+    const parsedContacts = JSON.parse(stringifiedContacts) ?? [];
+    return parsedContacts.length ? parsedContacts : contactsData;
   });
   useEffect(() => {
     localStorage.setItem('contactsInf', JSON.stringify(contacts));
